@@ -63,8 +63,10 @@ else:
                 st.markdown(f"- **{key}**: [Open File]({abs_path})")
 
                 # Show preview if it's an image
-                if abs_path.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
-                    st.image(abs_path, caption=key, use_column_width=True)
+                # if abs_path.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
+                if str(abs_path).lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
+                    st.image(str(abs_path), caption=key, use_column_width=True)
+                    # st.image(abs_path, caption=key, use_column_width=True)
 
                 # Add scoring inputs for the two plot paths
                 if key == "time_vs_p_plot_path":
