@@ -12,6 +12,7 @@ st.title("📂 Admin: View Student Submissions")
 SUBMISSION_DIR = Path(__file__).resolve().parent.parent
 csv_files = sorted([f for f in os.listdir(SUBMISSION_DIR) if f.endswith("_results.csv")])
 
+APP_DIR = Path(__file__).resolve().parent.parent  # one up from /pages
 
 if not csv_files:
     st.warning("No submission CSV files found.")
@@ -57,7 +58,8 @@ else:
         # Render metadata nicely + images + scoring inputs after the relevant rows
         for key, val in meta.items():
             if key.endswith("_path") and val:
-                abs_path = os.path.abspath(val)
+                rel_path = val.replace("\\", "/")
+                abs_path = (APP_DIR / rel_path).resolve()
                 st.markdown(f"- **{key}**: [Open File]({abs_path})")
 
                 # Show preview if it's an image
