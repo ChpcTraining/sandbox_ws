@@ -1,0 +1,26 @@
+email,john@gmail.com
+submission_time,2025-08-08 08:56:31
+n,48000
+niters,100
+q1,Linear
+q1_expl,In an ideal scenario; if we double the number of processors; we would expect the speed-up to double as well; which would be linear speed-up. However; from the data; the speed-up increases with the number of processors but not proportionally to the increase in processors; indicating sub-linear scaling. This is most likely due to overheads in communication between processes as the number of processors increases.
+q2,Run times differ for the same value of p because of the different configurations of px and py; which represent how the processors are arranged. These configurations might affect how the workload is distributed among processors; as well as the communication overhead. Some configurations may allow for better load balancing between processors; reducing idle times. Other configurations might incur higher communication costs between processors; especially if data needs to be exchanged frequently across distant processors. The geometry of how processors are arranged (e.g.; in grids of 1×8; 2×4; etc.) was observed to generally have a significant impact on the efficiency of the computation and data transfer.  The narrower or elongated grids were observed to perform better than the more evenly divided grids eg (1x6 vs 2x3); (1x8 vs 2x4); (2x6 vs 3x4) and (2x8 vs 4x4)
+q3,As the number of processors (p) increases; the run time (T) generally decreases; but not in a linear fashion. The trend is sub-linear; meaning;  initially; adding more processors reduces run time significantly; but in a jagged fashion. This effect is more pronounced with smaller p values. Furthermore; as more processors are added; the rate of improvement slows down due to increasing communication overheads; contention and synchronization costs. Indications are that if we keep adding more cores; the time might flatten indicating limited improvement due to parts that cannot be parallelized (Amdahl’s Law)
+time_vs_p_plot_path,uploads\john_at_gmail.com_time_vs_p.png
+speedup_vs_p_plot_path,uploads\john_at_gmail.com_speedup_vs_p.png
+
+p,px × py,Time (s),Speed-up
+2,1×2,11,1
+4,1×4,22,2
+4,2×2,133,3
+6,1×6,44,3
+6,2×3,55,4
+8,2×4,66,5
+9,3×3,7,6
+12,3×4,88,7
+16,4×4,99,8
+18,3×6,99,9
+24,4×6,11,10
+32,4×8,22,11
+36,6×6,33,11
+48,6×8,11,111
